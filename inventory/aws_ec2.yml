@@ -1,0 +1,11 @@
+plugin: aws_ec2
+regions:
+  - us-west-1   # adjust to your AWS region
+filters:
+  tag:Name: MyAppServer
+hostnames:
+  - public-ip-address
+compose:
+  ansible_host: public_ip_address
+groups:
+  dev: "'MyAppServer' in tags.Name"
