@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Ansible
+      - pip install ansible
+
+  pre_build:
+    commands:
+      - echo Checking version
+      - ansible --version
+      - chmod 400 ansibleamz.pem
+
+  build:
+    commands:
+      - echo Testing connectivity
+      - ansible -i inventory/aws_ec2.yml dev -m ping
+      - echo Running playbook
+      - ansible-playbook -i inventory/aws_ec2.yml playbook.yml
