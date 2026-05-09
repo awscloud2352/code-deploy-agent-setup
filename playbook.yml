@@ -1,5 +1,5 @@
 - name: Install CodeDeploy Agent
-  hosts: prod
+  hosts: tag_SDC_ENVIRONMENT_prod
   become: yes
   tasks:
     - name: Copy agent.sh script
