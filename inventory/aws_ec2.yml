@@ -1,11 +1,12 @@
-plugin: aws_ec2
+plugin: amazon.aws.aws_ec2
 regions:
   - us-east-1   # adjust to your AWS region
 filters:
-  tag:SDLC_ENVIRONMENT: prod
+  tag:SDLC_ENVIRONMENT: prod   # only include instances with this tag
 hostnames:
   - public-ip-address
 compose:
   ansible_host: public_ip_address
-groups:
-  dev: "'MyAppServer' in tags.Name"
+keyed_groups:
+  - key: tags.SDLC_ENVIRONMENT
+    prefix: ''
