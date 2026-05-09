@@ -1,5 +1,5 @@
 - name: Install CodeDeploy Agent
-  hosts: dev
+  hosts: prod
   become: yes
   tasks:
     - name: Copy agent.sh script
