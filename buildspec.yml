@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Checking version
       - ansible --version
-      - chmod 400 ansibleamz.pem
+      - chmod 400 ansible-key.pem
 
   build:
     commands:
